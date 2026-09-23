@@ -39,4 +39,4 @@ interface Logger {
 
 	// método locate
 	string locate(in Severidade s) raises (EventoNaoRecebido);
-}
+};
