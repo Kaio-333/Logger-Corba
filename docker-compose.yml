@@ -1,0 +1,10 @@
+services:
+  corba:
+    build: .
+    image: logger-corba-env
+    container_name: logger-corba
+    volumes:
+      - .:/work
+    working_dir: /work
+    environment:
+      TZ: "<-03>3"   # horario de Brasilia (UTC-3) sem precisar do pacote tzdata

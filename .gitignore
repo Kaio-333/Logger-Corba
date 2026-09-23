@@ -1,0 +1,16 @@
+# gerados pelo build (make regenera)
+Logger/bin/
+Logger/*/LoggerC.*
+Logger/*/LoggerS.*
+*.ior
+
+# ambiente local de cada um
+.ace-tao/
+.vscode/
+.claude/
+
+# material da disciplina (nao versionar)
+*.pdf
+*.jpeg
+
+.DS_Store

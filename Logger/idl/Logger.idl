@@ -1,4 +1,4 @@
-// Estudantes: Kaio Teles, Angelo Neto, Eduardo Mendes, Hugo Fagundes
+// Estudantes: Kaio Teles, Angelo Netho, Eduardo Mendes, Hugo Fagundes
 // Logger Interface
 //
 // Interface do "Logger de mensagens" para a aplicação distribuída.
@@ -31,12 +31,12 @@ enum Severidade {
 interface Logger {
 
 	oneway void log(
-		in Severidade s,
+		in Severidade severidade,
 		in string endereco,
 		in unsigned short pid,
 		in unsigned long long hora,
 		in string msg);
 
 	// método locate
-	string locate(in Severidade s) raises (EventoNaoRecebido);
+	string locate(in Severidade severidade) raises (EventoNaoRecebido);
 };
