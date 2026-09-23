@@ -1,0 +1,42 @@
+// Estudantes: Kaio Teles, Angelo Neto, Eduardo Mendes, Hugo Fagundes
+// Logger Interface
+//
+// Interface do "Logger de mensagens" para a aplicação distribuída.
+//
+// Uso típico:
+//
+//
+//    severidade: pode ser um dos seguintes valores: DEBUG, WARNING, ERROR e CRITICAL (utilize o tipo enum para restringir os valores desse campo);
+//    endereço: string no formato "ip:porta" contendo o endereço de onde aconteceu o evento;
+//    pid: identificador do processo que causou o evento (inteiro curto sem sinal);
+//    hora: momento onde ocorreu o evento (em segundos desde uma data de referência, e.g., 00:00:00 de 1/1/1970);
+//    msg: descrição do erro (string).
+//
+//    O Logger também deve possuir um método chamado locate(s), 
+//    que retorna o endereço do último evento com severidade s que recebeu. 
+
+// Logger
+
+exception EventoNaoRecebido {};
+
+// severidade
+enum Severidade {
+	DEBUG,
+	WARNING,
+	ERROR,
+	CRITICAL
+};
+
+
+interface Logger {
+
+	oneway void log(
+		in Severidade s,
+		in string endereco,
+		in unsigned short pid,
+		in unsigned long long hora,
+		in string msg);
+
+	// método locate
+	string locate(in Severidade s) raises (EventoNaoRecebido);
+}
